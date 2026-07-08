@@ -33,11 +33,14 @@ Todas as imagens enviadas já estão aplicadas. Mapeamento:
 - Depoimentos (carrossel): `dp1.png`–`dp4.png`
 - Médico: `img18.webp` · Garantia: `garantia.webp` · Prova social: `img19.webp`
 
-## Pendências (aguardando arquivo)
-1. **Logo** — falta `imagens/logo.png` (topo do quiz e topo/rodapé da PV). Enquanto não chega,
-   está como placeholder tracejado "LOGO".
-2. **Vídeo da VSL** — etapa 16 do quiz e topo da PV estão com um espaço preto (placeholder).
-   Colar aí o embed do player (VTurb/Panda/YouTube etc.) quando tiver.
+## Logo
+`imagens/logo.png` (RASGA XANA / MÉTODO 14 DIAS) — aplicado no topo do quiz e no topo/rodapé
+da PV. Fundo original (xadrez cinza opaco do gerador) foi removido via PIL e a imagem recortada
+para transparência real.
+
+## Pendência (aguardando arquivo)
+- **Vídeo da VSL** — etapa 16 do quiz e topo da PV estão com um espaço preto (placeholder).
+  Colar aí o embed do player (VTurb/Panda/YouTube etc.) quando tiver.
 
 > Os textos dos depoimentos dp2–dp4 e das FAQs 2–4 foram escritos por mim (as prints não
 > traziam esse texto). Revisar/ajustar se quiser.
