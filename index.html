@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Método Kegel 14 Dias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Topo comum: seta voltar + logo + barra de progresso -->
+    <header id="topbar">
+      <button id="back" aria-label="Voltar">&#8592;</button>
+      <div class="logo-wrap">
+        <div class="img-placeholder logo-ph">LOGO<small>Método Kegel 14 Dias · imagens/logo.png</small></div>
+      </div>
+      <div class="progress"><div id="progress-fill"></div></div>
+    </header>
+
+    <main>
+
+      <!-- ================= ETAPA 1 — Idade ================= -->
+      <section class="step active" data-step="1" data-key="idade">
+        <div class="step-inner">
+          <h1 class="q-title">Programa de exercícios para <span class="hl">elevar sua potência sexual</span></h1>
+          <p class="q-sub">Qual é a sua idade?</p>
+          <div class="options photo-grid" style="margin-top:22px">
+            <button class="photo-card" data-advance data-value="18 a 30 anos">
+              <img src="imagens/img1.webp" alt="18 a 30 anos" />
+              <div class="foot"><span>18 a 30 anos</span><span class="chev">&#8250;</span></div>
+            </button>
+            <button class="photo-card" data-advance data-value="31 a 45 anos">
+              <img src="imagens/img2.webp" alt="31 a 45 anos" />
+              <div class="foot"><span>31 a 45 anos</span><span class="chev">&#8250;</span></div>
+            </button>
+            <button class="photo-card" data-advance data-value="46 a 55 anos">
+              <img src="imagens/img3.webp" alt="46 a 55 anos" />
+              <div class="foot"><span>46 a 55 anos</span><span class="chev">&#8250;</span></div>
+            </button>
+            <button class="photo-card" data-advance data-value="+ de 56 anos">
+              <img src="imagens/img4.webp" alt="+ de 56 anos" />
+              <div class="foot"><span>+ de 56 anos</span><span class="chev">&#8250;</span></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 2 — Motivação ================= -->
+      <section class="step" data-step="2" data-key="motivacao">
+        <div class="step-inner">
+          <h1 class="q-title">Qual é a sua <span class="hl">principal motivação</span> para começar?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="Durar mais tempo na relação">
+              <img class="opt-icon" src="imagens/ampulheta.webp" alt="" />
+              <span class="label">Durar mais tempo na relação</span>
+              <span class="chev">&#8250;</span>
+            </button>
+            <button class="option-card" data-advance data-value="Ereções mais firmes">
+              <img class="opt-icon" src="imagens/escudomusculo.webp" alt="" />
+              <span class="label">Ereções mais firmes</span>
+              <span class="chev">&#8250;</span>
+            </button>
+          </div>
+          <div class="privacy">
+            <span class="lock">&#128274;</span>
+            <span>Seja sincero, essa pergunta é <span class="hl">100% privada</span> e apenas nos ajuda a entender qual o melhor tratamento pra você.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 3 — Satisfação ================= -->
+      <section class="step" data-step="3" data-key="satisfacao">
+        <div class="step-inner">
+          <h1 class="q-title">Quão satisfeito você está com seu <span class="hl">desempenho na cama</span>?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="Um pouco satisfeito"><span class="emoji">&#128578;</span><span class="label">Um pouco satisfeito</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Não muito"><span class="emoji">&#128528;</span><span class="label">Não muito</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Nada satisfeito"><span class="emoji">&#128554;</span><span class="label">Nada satisfeito</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 4 — Controle (escala) ================= -->
+      <section class="step" data-step="4" data-key="controle">
+        <div class="step-inner">
+          <h1 class="q-title">No sexo, quanto você consegue <span class="hl">segurar a ejaculação</span>?</h1>
+          <p class="q-sub">De 1 (baixo) a 5 (alto)</p>
+          <div class="scale">
+            <button class="scale-btn" data-advance data-value="1"><span class="mini-chev">&#8250;</span><span class="num">1</span></button>
+            <button class="scale-btn" data-advance data-value="2"><span class="mini-chev">&#8250;</span><span class="num">2</span></button>
+            <button class="scale-btn" data-advance data-value="3"><span class="mini-chev">&#8250;</span><span class="num">3</span></button>
+            <button class="scale-btn" data-advance data-value="4"><span class="mini-chev">&#8250;</span><span class="num">4</span></button>
+            <button class="scale-btn" data-advance data-value="5"><span class="mini-chev">&#8250;</span><span class="num">5</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 5 — Identificação ================= -->
+      <section class="step" data-step="5" data-key="identificacao">
+        <div class="step-inner">
+          <h1 class="q-title">Você se <span class="hl">identifica</span> com alguma dessas situações?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="Fico nervoso ANTES da relação"><span class="emoji">&#128560;</span><span class="label">Fico <b>nervoso</b> ANTES da relação</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Sinto ansiedade DURANTE o sexo"><span class="emoji">&#128543;</span><span class="label">Sinto <b>ansiedade</b> DURANTE o sexo</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Sinto culpa ou frustração DEPOIS"><span class="emoji">&#128533;</span><span class="label">Sinto <b>culpa</b> ou frustração DEPOIS</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Evito transar por medo de decepcionar"><span class="emoji">&#128528;</span><span class="label"><b>Evito transar</b> por medo de decepcionar</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Nenhuma das anteriores"><span class="label">Nenhuma das anteriores</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 6 — Transição g1 ================= -->
+      <section class="step" data-step="6" data-key="transicao1">
+        <div class="step-inner center-block">
+          <div class="g1-ph">
+            <img src="imagens/img5.webp" alt="Matéria g1 sobre ejaculação precoce" />
+          </div>
+          <p class="lead">Você não está sozinho.</p>
+          <p><span class="em">1 em cada 3 homens</span> já passou ou vai passar por <span class="em">problemas de ereção</span> em algum momento da vida.</p>
+          <p><u>A diferença está em quem decide resolver.</u></p>
+          <button class="btn-primary" data-advance>Continuar</button>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 7 — Conhece Kegel ================= -->
+      <section class="step" data-step="7" data-key="conhece_kegel">
+        <div class="step-inner">
+          <div class="q-image">
+            <img src="imagens/img6.webp" alt="Consulta médica" />
+          </div>
+          <h1 class="q-title">Você já ouviu falar nos <span class="hl">exercícios de Kegel</span>?</h1>
+          <div class="options" style="margin-top:18px">
+            <button class="option-card" data-advance data-value="Sim, já conheço"><span class="emoji">&#128077;</span><span class="label">Sim, Já conheço</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Já ouvi falar, mas não sei o que é"><span class="emoji">&#128515;</span><span class="label">Já ouvi falar, mas não sei o que é</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Não, nunca ouvi falar"><span class="emoji">&#129300;</span><span class="label">Não, nunca ouvi falar</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 8 — Info (dark) ================= -->
+      <section class="step step--dark" data-step="8" data-key="info_musculo">
+        <div class="dark-screen">
+          <h1 class="q-title">Existe um músculo que <span class="hl-red">controla quando você ejacula.</span></h1>
+          <img class="diag" src="imagens/img7.jpg" alt="Assoalho pélvico" />
+          <p><b>Ele faz parte do assoalho pélvico</b><br>a base muscular que sustenta<br>toda a sua performance sexual.</p>
+          <p class="hl-red" style="font-weight:700; margin-top:14px;">Só os exercícios Kegel treinam ele.</p>
+          <p style="margin-top:14px;">Continue para descobrir qual é o seu ponto de partida.</p>
+          <button class="btn-primary" data-advance>Continuar</button>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 9 — Duração atual ================= -->
+      <section class="step" data-step="9" data-key="duracao_atual">
+        <div class="step-inner">
+          <h1 class="q-title">Quanto tempo você costuma <span class="hl">durar na cama</span>?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="De 2 a 7 minutos"><span class="label">De 2 a 7 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Até 15 minutos"><span class="label">Até 15 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="15 minutos ou mais"><span class="label">15 minutos ou mais</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 10 — Frequência ================= -->
+      <section class="step" data-step="10" data-key="frequencia_termina">
+        <div class="step-inner">
+          <h1 class="q-title">Com que frequência você <span class="hl">termina antes de querer</span>?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="Menos de 1 mês"><span class="label">Menos de 1 mês</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Quase sempre"><span class="label">Quase sempre</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Sempre"><span class="label">Sempre</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 11 — Meta ================= -->
+      <section class="step" data-step="11" data-key="meta_tempo">
+        <div class="step-inner">
+          <h1 class="q-title">Quanto tempo você <span class="hl">quer durar</span>?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="10 a 15 minutos"><span class="label">10 a 15 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="15 a 20 minutos"><span class="label">15 a 20 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="20 minutos ou mais"><span class="label">20 minutos ou mais</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 12 — Ereção matinal ================= -->
+      <section class="step" data-step="12" data-key="erecao_matinal">
+        <div class="step-inner">
+          <h1 class="q-title">Com que frequência você acorda com <span class="hl">ereção matinal</span>?</h1>
+          <div class="options">
+            <button class="option-card" data-advance data-value="Quase todo dia"><span class="label">Quase todo dia</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Algumas vezes por semana"><span class="label">Algumas vezes por semana</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Raramente"><span class="label">Raramente</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="Praticamente nunca"><span class="label">Praticamente nunca</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 13 — Estresse (escala) ================= -->
+      <section class="step" data-step="13" data-key="estresse">
+        <div class="step-inner">
+          <h1 class="q-title">Avalie seu nível de <span class="hl">estresse</span> diário</h1>
+          <p class="q-sub">De 1 (baixo) a 5 (alto)</p>
+          <div class="scale">
+            <button class="scale-btn" data-advance data-value="1"><span class="mini-chev">&#8250;</span><span class="num">1</span></button>
+            <button class="scale-btn" data-advance data-value="2"><span class="mini-chev">&#8250;</span><span class="num">2</span></button>
+            <button class="scale-btn" data-advance data-value="3"><span class="mini-chev">&#8250;</span><span class="num">3</span></button>
+            <button class="scale-btn" data-advance data-value="4"><span class="mini-chev">&#8250;</span><span class="num">4</span></button>
+            <button class="scale-btn" data-advance data-value="5"><span class="mini-chev">&#8250;</span><span class="num">5</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 14 — Tempo de sessão ================= -->
+      <section class="step" data-step="14" data-key="tempo_sessao">
+        <div class="step-inner">
+          <div class="q-image">
+            <img src="imagens/img8.webp" alt="Sessão de Kegel" />
+          </div>
+          <h1 class="q-title">Quanto tempo você consegue dedicar para uma <span class="hl">sessão de Kegel</span>?</h1>
+          <div class="options" style="margin-top:18px">
+            <button class="option-card" data-advance data-value="2-5 minutos"><span class="label">2-5 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="5-10 minutos"><span class="label">5-10 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="11-15 minutos"><span class="label">11-15 minutos</span><span class="chev">&#8250;</span></button>
+            <button class="option-card" data-advance data-value="15+ minutos"><span class="label">15+ minutos</span><span class="chev">&#8250;</span></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 15 — Loading / IA (navy) ================= -->
+      <section class="step" data-step="15" data-key="loading">
+        <div class="dark-screen loading-screen">
+          <img class="diag" src="imagens/img9.webp" alt="IA analisando" />
+          <p style="margin-top:20px;">Uma IA desenvolvida por nossos <span class="em">especialistas clínicos em saúde sexual</span> está avaliando suas respostas e gerando um diagnóstico</p>
+          <p><u>100% personalizado para o seu caso.</u></p>
+          <div class="ring-wrap">
+            <div class="ring">
+              <svg width="130" height="130" viewBox="0 0 130 130">
+                <circle class="track" cx="65" cy="65" r="58"></circle>
+                <circle class="bar" id="ring-bar" cx="65" cy="65" r="58"></circle>
+              </svg>
+              <div class="pct" id="ring-pct">0%</div>
+            </div>
+          </div>
+          <img class="premio" src="imagens/img10.png" alt="Prêmio Reclame Aqui 2025" />
+        </div>
+      </section>
+
+      <!-- ================= ETAPA 16 — VSL ================= -->
+      <section class="step" data-step="16" data-key="vsl">
+        <div class="step-inner vsl-title">
+          <h1 class="q-title">O que está <span class="hl">prejudicando o seu controle</span> foi identificado.</h1>
+          <span class="sub">Assista o vídeo para entender como resolver &#128071;</span>
+          <div class="video-ph">
+            VÍDEO (VSL)<br>imagens/etapa16-vsl.jpg
+            <div class="play">&#9654;</div>
+          </div>
+          <a id="vsl-cta" class="btn-primary" href="pv.html">Continuar</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>

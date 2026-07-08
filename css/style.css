@@ -1,0 +1,370 @@
+/* ==========================================================================
+   Método Kegel 14 Dias — estilos do funil (quiz + página de vendas)
+   ========================================================================== */
+
+:root {
+  --blue: #2F6DF6;
+  --blue-dark: #2455c9;
+  --ink: #1A1A1A;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --card-bg: #ffffff;
+  --green: #22b64b;
+  --green-dark: #17913a;
+  --red: #FF3B3B;
+  --navy: #0A1526;
+  --track: #E7E7E7;
+  --fill: #111111;
+  --radius: 14px;
+  --maxw: 480px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink);
+  background: #ffffff;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  transition: background .3s ease;
+}
+
+.hl { color: var(--blue); }
+.hl-red { color: var(--red); }
+u, .underline { text-decoration: underline; }
+
+/* ---------- Placeholder de imagem (o usuário troca por <img> depois) ------- */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 6px;
+  background: repeating-linear-gradient(45deg, #f3f4f6, #f3f4f6 10px, #eceef1 10px, #eceef1 20px);
+  border: 2px dashed #c3c8d0;
+  border-radius: 12px;
+  color: #7a828d;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  padding: 16px;
+  min-height: 90px;
+}
+.img-placeholder small { display: block; font-weight: 500; opacity: .8; margin-top: 3px; }
+.img-placeholder.icon { min-height: 0; width: 40px; height: 40px; padding: 2px; font-size: 8px; border-radius: 10px; flex: 0 0 auto; overflow: hidden; }
+.img-placeholder.icon small { display: none; }
+/* placeholder em contexto escuro */
+.theme-dark .img-placeholder,
+.theme-navy .img-placeholder,
+.step--dark .img-placeholder {
+  background: repeating-linear-gradient(45deg, #1b1f27, #1b1f27 10px, #232833 10px, #232833 20px);
+  border-color: #3a4150;
+  color: #aab2bf;
+}
+
+/* ==========================================================================
+   QUIZ
+   ========================================================================== */
+
+#app { max-width: var(--maxw); margin: 0 auto; min-height: 100%; padding-bottom: 40px; }
+
+/* topo: seta voltar + logo + progresso */
+#topbar { position: relative; padding: 14px 18px 0; }
+#back {
+  position: absolute; left: 14px; top: 14px;
+  border: none; background: none; cursor: pointer;
+  font-size: 22px; line-height: 1; color: #111; padding: 4px;
+}
+.logo-wrap { display: flex; justify-content: center; padding: 6px 0 18px; }
+.logo-ph { width: 118px; height: 60px; }
+
+.progress { height: 6px; background: var(--track); border-radius: 6px; overflow: hidden; margin: 0 0 8px; }
+#progress-fill { height: 100%; width: 6%; background: var(--fill); border-radius: 6px; transition: width .35s ease; }
+
+main { padding: 0 18px; }
+
+/* etapas */
+.step { display: none; animation: fade .35s ease; }
+.step.active { display: block; }
+@keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.step-inner { padding-top: 26px; }
+
+.q-title { font-size: 24px; font-weight: 700; text-align: center; line-height: 1.25; }
+.q-sub { text-align: center; color: var(--muted); font-size: 16px; margin-top: 10px; }
+.q-title + .options, .q-sub + .options { margin-top: 22px; }
+
+/* cards de resposta */
+.options { display: flex; flex-direction: column; gap: 12px; }
+.option-card {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; text-align: left;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 16px;
+  font: inherit; font-size: 16px; color: var(--ink); cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  transition: border-color .15s, box-shadow .15s, transform .05s;
+}
+.option-card:hover { border-color: #cfd4dc; box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+.option-card:active { transform: scale(.99); }
+.option-card .emoji { font-size: 22px; flex: 0 0 auto; }
+.option-card .label { flex: 1; }
+.option-card .chev {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid #d2d6dd; display: flex; align-items: center; justify-content: center;
+  color: #333; font-size: 15px;
+}
+
+/* etapa 1 — cards com foto */
+.photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.photo-card {
+  border: none; background: none; padding: 0; cursor: pointer; font: inherit;
+  border-radius: 16px; overflow: hidden; text-align: left;
+  transition: transform .05s;
+}
+.photo-card:active { transform: scale(.99); }
+.photo-card .img-placeholder { border-radius: 16px 16px 0 0; min-height: 175px; border-bottom: none; }
+.photo-card .foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  background: #0b0b0b; color: #fff; padding: 12px 14px; border-radius: 0 0 16px 16px;
+  font-size: 15px; font-weight: 500;
+}
+.photo-card .foot .chev { border-color: #666; color: #fff; }
+
+/* escala 1–5 */
+.scale { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.scale-btn {
+  width: 62px; height: 62px; border: 1px solid var(--border); border-radius: 12px;
+  background: #fff; cursor: pointer; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 4px; font: inherit;
+  box-shadow: 0 1px 2px rgba(0,0,0,.03); transition: border-color .15s, box-shadow .15s;
+}
+.scale-btn:hover { border-color: #cfd4dc; box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+.scale-btn .mini-chev {
+  width: 20px; height: 20px; border-radius: 50%; border: 1px solid #d2d6dd;
+  display: flex; align-items: center; justify-content: center; font-size: 12px; color: #444;
+}
+.scale-btn .num { font-size: 18px; font-weight: 700; }
+
+/* imagem no topo de uma pergunta (etapa 7, 14) */
+.q-image { margin: 4px 0 4px; }
+.q-image .img-placeholder { min-height: 210px; border-radius: 16px; }
+
+/* box de privacidade (etapa 2) */
+.privacy {
+  display: flex; align-items: center; gap: 14px;
+  background: #eaf1ff; border-radius: 14px; padding: 18px; margin-top: 26px;
+  font-size: 15px; color: #29303a;
+}
+.privacy .lock { font-size: 26px; flex: 0 0 auto; }
+
+/* páginas de transição (texto centralizado + botão) */
+.center-block { text-align: center; }
+.center-block .lead { font-size: 20px; font-weight: 700; margin: 22px 0 14px; }
+.center-block p { font-size: 16px; margin: 10px 0; }
+.center-block .em { font-weight: 700; }
+
+.btn-primary {
+  display: block; width: 100%; border: none; cursor: pointer; font: inherit;
+  background: var(--blue); color: #fff; font-size: 18px; font-weight: 600;
+  padding: 18px; border-radius: 30px; margin-top: 22px;
+  transition: background .15s, transform .05s;
+}
+.btn-primary:hover { background: var(--blue-dark); }
+.btn-primary:active { transform: scale(.99); }
+
+/* g1 (etapa 6) */
+.g1-ph .img-placeholder { min-height: 260px; border-radius: 10px; }
+
+/* ---------- Etapa 8 — full dark ---------- */
+body.theme-dark { background: #000; }
+body.theme-navy { background: var(--navy); }
+
+.step--dark { color: #fff; text-align: center; }
+.step--dark .q-title { color: #fff; }
+.step--dark .lead { color: #fff; }
+.step--dark p { color: #e6e9ef; font-size: 16px; margin: 8px 0; }
+.step--dark .img-placeholder { min-height: 240px; margin: 22px 0; }
+.dark-screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 30px 22px; max-width: var(--maxw); margin: 0 auto; }
+
+/* ---------- Etapa 15 — loading / IA ---------- */
+.loading-screen { text-align: center; color: #fff; }
+.loading-screen p { color: #dfe4ec; font-size: 16px; margin: 8px 0; }
+.loading-screen .em { color: #fff; font-weight: 600; }
+.ring-wrap { display: flex; justify-content: center; margin: 30px 0; }
+.ring { position: relative; width: 130px; height: 130px; }
+.ring svg { transform: rotate(-90deg); }
+.ring .track { fill: none; stroke: rgba(255,255,255,.15); stroke-width: 8; }
+.ring .bar { fill: none; stroke: var(--blue); stroke-width: 8; stroke-linecap: round;
+  stroke-dasharray: 364; stroke-dashoffset: 364; transition: stroke-dashoffset .2s linear; }
+.ring .pct { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; font-weight: 600; color: #cfd6e2; }
+
+/* ---------- Etapa 16 — VSL ---------- */
+.vsl-title { text-align: center; }
+.vsl-title .lead { font-size: 22px; font-weight: 700; }
+.vsl-title .sub { font-weight: 700; text-decoration: underline; margin-top: 6px; display: block; }
+.video-ph {
+  position: relative; width: 100%; aspect-ratio: 9/16; max-height: 620px;
+  background: #000; border-radius: 14px; margin: 18px 0;
+  display: flex; align-items: center; justify-content: center; color: #cfd6e2;
+  text-align: center; font-size: 13px; font-weight: 600; padding: 20px;
+  border: 2px dashed #3a4150;
+}
+.video-ph .play { position: absolute; bottom: 14px; left: 14px; width: 34px; height: 34px;
+  border: 1px solid #6b7688; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+#vsl-cta { display: none; }
+#vsl-cta.show { display: block; }
+
+/* ==========================================================================
+   PÁGINA DE VENDAS (pv.html)
+   ========================================================================== */
+.pv { max-width: var(--maxw); margin: 0 auto; padding: 0 18px 60px; }
+.pv .logo-wrap { padding: 14px 0 14px; }
+.pv .divider { height: 4px; background: #111; border-radius: 4px; margin: 4px 0 22px; }
+
+/* countdown */
+.countdown { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 4px 0 20px; }
+.countdown .box { background: #d9f7df; color: #128a34; border-radius: 14px; padding: 10px 16px; text-align: center; min-width: 66px; }
+.countdown .box b { display: block; font-size: 30px; font-weight: 700; line-height: 1; }
+.countdown .box span { font-size: 12px; }
+.countdown .sep { font-size: 26px; font-weight: 700; color: #128a34; }
+
+.pv h2 { text-align: center; font-size: 24px; font-weight: 700; margin: 40px 0 20px; }
+.pv .headline { text-align: center; font-size: 22px; font-weight: 700; line-height: 1.3; }
+.pv .headline .sub { display: block; font-weight: 700; text-decoration: underline; margin-top: 6px; }
+
+/* botão verde de CTA */
+.btn-buy {
+  display: block; width: 100%; text-align: center; border: none; cursor: pointer;
+  font: inherit; text-decoration: none;
+  background: var(--green); color: #fff; font-size: 20px; font-weight: 600;
+  padding: 20px; border-radius: 34px; margin: 18px 0 10px;
+  box-shadow: 0 6px 0 var(--green-dark); transition: transform .05s, box-shadow .1s;
+}
+.btn-buy:hover { filter: brightness(1.03); }
+.btn-buy:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--green-dark); }
+
+/* blocos de imagem grandes */
+.pv .media { margin: 8px 0; }
+.pv .media .img-placeholder { min-height: 300px; border-radius: 16px; }
+.pv .offer .img-placeholder { min-height: 330px; }
+.pv .bonus-img .img-placeholder { min-height: 340px; border-radius: 18px; }
+
+/* bônus rótulo */
+.bonus-label { text-align: center; margin: 14px 0 4px; }
+.bonus-label .tag { color: var(--green); font-weight: 700; font-size: 20px; display: block; }
+.bonus-label .name { font-weight: 700; font-size: 17px; display: block; margin-top: 2px; }
+.bonus-label .price { font-weight: 700; margin-top: 2px; display: block; }
+.bonus-label .price s { color: var(--red); }
+
+/* depoimento */
+.testimonial { border: 1px solid var(--border); border-radius: 18px; overflow: hidden; margin-top: 6px; }
+.testimonial .img-placeholder { min-height: 340px; border-radius: 0; border-left: none; border-right: none; border-top: none; }
+.testimonial .body { padding: 22px 20px; text-align: center; }
+.testimonial .body p { font-size: 16px; }
+.testimonial .stars { margin-top: 14px; font-size: 15px; }
+
+/* lista "por que é único" */
+.why { margin-top: 6px; }
+.why h3 { font-size: 18px; font-weight: 700; margin: 18px 0 6px; }
+.why p { font-size: 16px; color: #333; }
+
+/* suporte / médico */
+.pv .doctor .img-placeholder { min-height: 360px; border-radius: 18px; }
+.support-title { text-align: center; font-size: 20px; font-weight: 700; margin: 18px 0 8px; }
+.support-sub { text-align: center; color: #333; font-size: 16px; }
+
+.help-box { border: 1px solid var(--border); border-radius: 18px; padding: 22px 20px; margin-top: 24px; }
+.help-box h3 { text-align: center; font-size: 18px; font-weight: 700; margin-bottom: 14px; }
+.help-box ul { list-style: none; }
+.help-box li { padding: 8px 0; font-size: 16px; }
+.help-box li::before { content: "✓ "; color: #111; font-weight: 700; }
+
+/* garantia */
+.guarantee { text-align: center; margin-top: 20px; }
+.guarantee .img-placeholder { width: 240px; height: 240px; border-radius: 50%; margin: 0 auto 18px; }
+.guarantee .em { font-weight: 700; font-style: italic; font-size: 18px; margin-bottom: 12px; }
+.guarantee p { font-size: 16px; color: #333; }
+
+/* prova social */
+.social { text-align: center; margin-top: 40px; }
+.social .big { font-size: 30px; font-weight: 700; }
+.social .sub { color: #333; font-size: 16px; margin-top: 4px; }
+.social .rating { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--border);
+  border-radius: 30px; padding: 12px 22px; margin: 16px 0 8px; font-size: 16px; }
+.social .rating .stars { letter-spacing: 2px; }
+.social .note { color: var(--muted); font-size: 14px; }
+.social .badges { margin-top: 16px; }
+.social .badges .img-placeholder { max-width: 320px; height: 70px; min-height: 0; margin: 0 auto; }
+
+/* FAQ */
+.faq { margin-top: 34px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; font: inherit;
+  display: flex; gap: 12px; align-items: flex-start; justify-content: space-between;
+  padding: 20px 2px; font-size: 17px; font-weight: 700; color: var(--ink); }
+.faq-q .arrow { flex: 0 0 auto; transition: transform .2s; color: #9aa0aa; }
+.faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+.faq-a { display: none; padding: 0 2px 20px; font-size: 16px; color: #333; font-style: italic; }
+.faq-item.open .faq-a { display: block; }
+
+/* footer */
+.pv-footer { text-align: center; margin-top: 46px; }
+.pv-footer .logo-ph { width: 150px; height: 90px; margin: 0 auto 14px; }
+.pv-footer p { color: #333; font-size: 15px; }
+
+/* ==========================================================================
+   IMAGENS REAIS (substituem os placeholders)
+   ========================================================================== */
+img { max-width: 100%; }
+.ph-img { width: 100%; height: auto; border-radius: 14px; display: block; }
+
+/* logo */
+.logo-img { width: 118px; height: auto; display: block; }
+.pv-footer .logo-img { width: 150px; }
+
+/* etapa 1 — fotos */
+.photo-card img { width: 100%; height: 210px; object-fit: cover; object-position: center top;
+  display: block; border-radius: 16px 16px 0 0; }
+
+/* etapa 2 — ícones */
+.opt-icon { width: 40px; height: 40px; object-fit: contain; flex: 0 0 auto; }
+
+/* imagens de pergunta / transição / dark */
+.q-image img, .g1-ph img { width: 100%; height: auto; border-radius: 16px; display: block; }
+.step--dark img.diag { width: 100%; height: auto; border-radius: 12px; margin: 22px 0; display: block; }
+
+/* etapa 15 */
+.loading-screen img.diag { width: 100%; height: auto; border-radius: 14px; display: block; }
+.loading-screen img.premio { width: 100%; max-width: 340px; height: auto; margin: 0 auto;
+  display: block; border-radius: 12px; }
+
+/* pv — blocos de imagem */
+.pv .media img, .pv .offer img, .pv .bonus-img img { width: 100%; height: auto; border-radius: 16px; display: block; }
+.pv .doctor img { width: 100%; height: auto; border-radius: 18px; display: block; }
+.guarantee img { width: 240px; height: 240px; object-fit: contain; margin: 0 auto 18px; display: block; }
+.social img { width: 100%; height: auto; display: block; }
+
+/* carrossel (app + depoimentos) */
+.carousel { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; padding: 4px 0 10px; scrollbar-width: thin; }
+.carousel > * { scroll-snap-align: center; flex: 0 0 86%; }
+.carousel::-webkit-scrollbar { height: 6px; }
+.carousel::-webkit-scrollbar-thumb { background: #d2d6dd; border-radius: 6px; }
+.app-carousel img { width: 100%; height: auto; border-radius: 16px; display: block; }
+
+.tcard { border: 1px solid var(--border); border-radius: 18px; overflow: hidden; background: #fff; }
+.tcard img { width: 100%; height: 300px; object-fit: cover; display: block; }
+.tcard .body { padding: 18px 16px; text-align: center; }
+.tcard .body p { font-size: 15px; }
+.tcard .stars { margin-top: 12px; font-size: 14px; }
+
+/* ---------- responsivo ---------- */
+@media (min-width: 520px) {
+  .q-title { font-size: 26px; }
+}
